@@ -60,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  </div>
 				  
 				  <div class="mb-3">
-					<label class="form-label">Foto</label>
-					<input type="file" class="form-control">
+					<label class="form-label">Foto Selfie</label>
+					<input id="myFileInput" type="file" accept="image/*" capture="user" class="form-control">
 				  </div>
 				  
 				  <button type="submit" class="btn btn-primary">Kirim</button>
