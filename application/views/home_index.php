@@ -70,8 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
-		<footer class="pt-3 mt-4 text-muted border-top">
-		  &copy; 2023
+		<footer class="pt-3 mt-4 container text-muted border-top">
+			<div class="d-flex justify-content-between">
+				<div>&copy; 2023</div>
+				<div><a href="<?=site_url('home')?>">Isi Absen</a> | <a href="<?=site_url('akun')?>">Login Guru/Admin</a></div>
+			</div>		  
 		</footer>
 	  </div>
 	</main>
