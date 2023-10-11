@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
               <h2 class="fw-bolder mb-4 text-uppercase">Masuk</h2>
 			  		  
-			  <form method="post" action="<?=site_url('login/login_go')?>">
+			  <form method="post" action="<?=site_url('akun/login_go')?>">
 				  <div class="form-outline form-white mb-2">
 					<input type="text" name="id" id="typeEmailX" class="form-control" />
 					<label class="form-label" for="typeEmailX">ID</label>
