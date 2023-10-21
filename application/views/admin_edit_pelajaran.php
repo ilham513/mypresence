@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard Admin</title>
+  <title>Edit Pelajaran</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,53 +46,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Edit Pelajaran</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">Edit Pelajaran</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-		<!-- Sales Card -->
-					<div class="row">
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Jumlah Siswa</h5>
+	
+		<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mengubah Pelajaran</h5>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-							  <i class="bi bi-person"></i>
-							</div>
-							<div class="ps-3">
-							  <h6>800</h6>
-							  <span class="text-muted small pt-2 ps-1">400 Laki-laki & 400 Perempuan</span>
-							</div>
-						  </div>
-						</div>
-					  </div>
-					  <div class="col card info-card sales-card m-3">
-						<div class="card-body">
-						  <h5 class="card-title">Pelajaran</h5>
+              <!-- General Form Elements -->
+              <form action="<?=site_url('admin/edit_pelajaran_go')?>" method="post">
+                <div class="row mb-3 d-none">
+                  <div class="col-sm-10">
+                    <input name="id_pelajaran" type="hidden" value="<?=$obj_pelajaran->id_pelajaran?>" class="form-control">
+                  </div>
+                </div>
+				
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Nama Pelajaran</label>
+                  <div class="col-sm-10">
+                    <input name="nama_pelajaran" type="text" value="<?=$obj_pelajaran->nama_pelajaran?>" class="form-control">
+                  </div>
+                </div>
+				
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Nama Guru</label>
+                  <div class="col-sm-10">
+                    <input name="nama_guru" type="text" value="<?=$obj_pelajaran->nama_guru?>" class="form-control">
+                  </div>
+                </div>
+				
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                  </div>
+                </div>
 
-						  <div class="d-flex align-items-center">
-							<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-							  <i class="bi-journal-text"></i>
-							</div>
-							<div class="ps-3">
-							  <h6>145</h6>
-							  <span class="text-muted small pt-2 ps-1">IPA dan IPS</span>
-							</div>
-						  </div>
-						</div>
-					  </div>
-					  
-					  
-					  
-					</div>
-		<!-- End Sales Card -->    
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
+	
 	</section>
 
   </main><!-- End #main -->

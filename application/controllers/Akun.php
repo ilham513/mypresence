@@ -11,7 +11,7 @@ class Akun extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('akun_index');
+		$this->load->view('akun_login');
 	}
 
 	public function login_go()

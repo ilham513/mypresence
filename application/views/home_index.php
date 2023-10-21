@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-	<link href="<?=base_url();?>css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="<?=base_url();?>css/bootstrap.min.css" rel="stylesheet" >
 	<link href="<?=base_url();?>css/style.css" rel="stylesheet" >    
   </head>
   <body>
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<footer class="pt-3 mt-4 container text-muted border-top">
 			<div class="d-flex justify-content-between">
 				<div>&copy; 2023</div>
-				<div><a href="<?=site_url('home')?>">Isi Absen</a> | <a href="<?=site_url('akun')?>">Login Guru/Admin</a></div>
+				<div><a href="<?=site_url('akun')?>">Login Admin</a></div>
 			</div>		  
 		</footer>
 	  </div>
