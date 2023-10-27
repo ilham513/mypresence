@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View Absen</title>
+  <title>View Siswa</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>List Absen</h1>
+      <h1>List Siswa</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Lists Absen</li>
+          <li class="breadcrumb-item active">List Siswa</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -63,38 +63,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-					<h5 class="card-title">Data Absen</h5>
-					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_absen')?>">Buat Kode Absen</a></button>
+					<h5 class="card-title">Data Siswa</h5>
+					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_siswa')?>">Tambah Siswa</a></button>
 				  </div>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Kelas</th>
-                        <th scope="col">Pelajaran</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Jam Mulai</th>
-                        <th scope="col">Jam Selesai</th>
-                        <th scope="col">Kode Absen</th>
+                        <th scope="col">NIS</th>
+                        <th scope="col">NISN</th>
+                        <th scope="col">Nama Siswa</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Agama</th>
                         <th scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-<?php foreach($array_absen as $absen): ?>					
+					  <?php foreach($array_siswa as $siswa): ?>
                       <tr>
-                        <th scope="row"><?=$absen->id_absen?></th>
-                        <td><?=$absen->nama_kelas?></td>
-                        <td><?=$absen->nama_pelajaran?></td>
-                        <td><?=$absen->tanggal?></td>
-                        <td><?=$absen->jam_mulai?></td>
-                        <td><?=$absen->jam_selesai?></td>
-                        <td><span class="badge bg-success"><?=$absen->kode_absen?></span></td>
-                        <td><a href="<?=site_url('admin/hapus_absen/'.$absen->id_absen)?>"><i class="bi bi-trash3"></i></a> | 
-						<a href="<?=site_url('admin/edit_absen/'.$absen->id_absen)?>"><i class="bi bi-pencil-square"></i></a> | 
-						<i class="bi bi-eye-fill"></i></td>
+                        <th scope="row"><?=$siswa->id_siswa?></th>
+                        <td><?=$siswa->nisn?></td>
+                        <td><?=$siswa->nama_siswa?></td>
+                        <td><?=$siswa->jenis_kelamin == 'l' ? 'Laki-Laki' : 'Perempuan' ?></td>
+                        <td><?=$siswa->agama?></td>
+                        <td><a href="xxx"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_siswa/'.$siswa->id_siswa)?>"><i class="bi bi-trash3"></i></a> </td>
                       </tr>
-<?php endforeach; ?>					  
+					  <?php endforeach; ?>
                     </tbody>
                   </table>
 

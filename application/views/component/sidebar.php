@@ -11,7 +11,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('admin/add_absen')?>">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-plus-circle"></i>
           <span>Buat Kode Absen</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -19,7 +19,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?=site_url('admin/view_absen')?>">
           <i class="bi bi-journal-text"></i>
-          <span>List Absen</span>
+          <span>Data Absen</span>
         </a>
       </li><!-- End Profile Page Nav -->
 	  
@@ -27,6 +27,13 @@
         <a class="nav-link collapsed" href="<?=site_url('admin/view_pelajaran')?>">
           <i class="bi bi-book"></i>
           <span>Pelajaran</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=site_url('admin/view_siswa')?>">
+          <i class="bi bi-person"></i>
+          <span>Siswa</span>
         </a>
       </li><!-- End Profile Page Nav -->
 

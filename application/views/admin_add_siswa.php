@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Buat Kode Absen</title>
+  <title>Tambah Siswa</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Buat Kode Absen</h1>
+      <h1>Tambah Siswa</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Buat Kode Absen</li>
+          <li class="breadcrumb-item active">Tambah Siswa</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -59,70 +59,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		<div class="card">
             <div class="card-body">
-              <h5 class="card-title">Membuat Kode Absen</h5>
+              <h5 class="card-title">Menambah Siswa</h5>
 
               <!-- General Form Elements -->
-              <form action="<?=site_url('admin/add_absen_go')?>" method="post">
+              <form action="<?=site_url('admin/add_siswa_go')?>" method="post">
                 <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Pelajaran</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">NISN</label>
                   <div class="col-sm-10">
-                    <select name="id_pelajaran" class="form-select" aria-label="Default select example">
-                      <option selected disabled>Pilih nama pelajaran</option>
-					  <?php foreach($array_pelajaran as $pelajaran): ?>
-                      <option value="<?=$pelajaran->id_pelajaran?>"><?=$pelajaran->nama_pelajaran?></option>
-					  <?php endforeach; ?>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Nama Guru</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="nama_guru" list="data_guru" class="form-control">
-					<datalist id="data_guru">
-					<?php foreach($array_pelajaran as $pelajaran): ?>
-						<option value="<?=$pelajaran->nama_guru?>">
-					<?php endforeach; ?>	
-					</datalist>
+                    <input name="nisn" type="number" class="form-control">
                   </div>
                 </div>
 				
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">Kelas</legend>
-                  <div class="col-sm-10">
-                    <?php foreach($array_kelas as $kelas): ?>
-					<div class="form-check">
-                      <input class="form-check-input" type="radio" name="id_kelas" id="gridRadios1" value="<?=$kelas->id_kelas?>" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        <?=$kelas->nama_kelas?>
-                      </label>
-                    </div>
-					<?php endforeach; ?>
-                  </div>
-                </fieldset>				
                 <div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">Tanggal</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Nama Siswa</label>
                   <div class="col-sm-10">
-                    <input name="tanggal" type="date" class="form-control">
+                    <input name="nama_siswa" type="text" class="form-control">
                   </div>
                 </div>
-				<div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">Jam Mulai</label>
+
+                <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
                   <div class="col-sm-10">
-                    <input name="jam_mulai" type="time" class="form-control">
+					<div class="form-check">
+                      <input class="form-check-input" type="radio" name="jenis_kelamin"  value="l">
+                      <label class="form-check-label" for="gridRadios1">Laki-Laki</label>
+                    </div>
+					<div class="form-check">
+                      <input class="form-check-input" type="radio" name="jenis_kelamin"  value="p">
+                      <label class="form-check-label" for="gridRadios1">Perempuan</label>
+                    </div>
                   </div>
-                </div>				
+                </fieldset>				
+				
                 <div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">Jam Selesai</label>
+                  <label for="inputText" class="col-sm-2 col-form-label">Agama</label>
                   <div class="col-sm-10">
-                    <input name="jam_selesai" type="time" class="form-control">
+                    <input name="agama" type="text" class="form-control">
                   </div>
                 </div>
 				
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Buat</button>
+                    <button type="submit" class="btn btn-primary">Tambahkan</button>
                   </div>
                 </div>
 

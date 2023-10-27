@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2023 at 04:51 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Oct 27, 2023 at 03:17 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,30 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `absen`
+--
+-- Error reading structure for table mypresence.absen: #1932 - Table 'mypresence.absen' doesn't exist in engine
+-- Error reading data for table mypresence.absen: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `mypresence`.`absen`' at line 1
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `akun`
 --
+-- Error reading structure for table mypresence.akun: #1932 - Table 'mypresence.akun' doesn't exist in engine
+-- Error reading data for table mypresence.akun: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `mypresence`.`akun`' at line 1
 
-CREATE TABLE `akun` (
-  `id` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `akun`
---
-
-INSERT INTO `akun` (`id`, `password`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3');
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Table structure for table `kelas`
 --
+-- Error reading structure for table mypresence.kelas: #1932 - Table 'mypresence.kelas' doesn't exist in engine
+-- Error reading data for table mypresence.kelas: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `mypresence`.`kelas`' at line 1
+
+-- --------------------------------------------------------
 
 --
--- Indexes for table `akun`
+-- Table structure for table `pelajaran`
 --
-ALTER TABLE `akun`
-  ADD PRIMARY KEY (`id`);
+-- Error reading structure for table mypresence.pelajaran: #1932 - Table 'mypresence.pelajaran' doesn't exist in engine
+-- Error reading data for table mypresence.pelajaran: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `mypresence`.`pelajaran`' at line 1
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `siswa`
+--
+-- Error reading structure for table mypresence.siswa: #1932 - Table 'mypresence.siswa' doesn't exist in engine
+-- Error reading data for table mypresence.siswa: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `mypresence`.`siswa`' at line 1
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

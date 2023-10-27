@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Buat Kode Absen</title>
+  <title>Edit Kode Absen</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Buat Kode Absen</h1>
+      <h1>Edit Kode Absen</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">Buat Kode Absen</li>
+          <li class="breadcrumb-item active">Edit Kode Absen</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -59,17 +59,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 		<div class="card">
             <div class="card-body">
-              <h5 class="card-title">Membuat Kode Absen</h5>
+              <h5 class="card-title">Edit Kode Absen</h5>
 
               <!-- General Form Elements -->
-              <form action="<?=site_url('admin/add_absen_go')?>" method="post">
+              <form action="<?=site_url('admin/edit_absen_go')?>" method="post">
+                <div class="row mb-3">
+				  <input type="hidden" name="id_absen" value="<?=$obj_absen->id_absen?>" class="form-control">
+                </div>
+
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Pelajaran</label>
                   <div class="col-sm-10">
                     <select name="id_pelajaran" class="form-select" aria-label="Default select example">
                       <option selected disabled>Pilih nama pelajaran</option>
 					  <?php foreach($array_pelajaran as $pelajaran): ?>
-                      <option value="<?=$pelajaran->id_pelajaran?>"><?=$pelajaran->nama_pelajaran?></option>
+                      <option <?=$pelajaran->id_pelajaran == $obj_absen->id_pelajaran ? 'selected' : '';?> value="<?=$pelajaran->id_pelajaran?>"><?=$pelajaran->nama_pelajaran?></option>
 					  <?php endforeach; ?>
                     </select>
                   </div>
@@ -78,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nama Guru</label>
                   <div class="col-sm-10">
-                    <input type="text" name="nama_guru" list="data_guru" class="form-control">
+                    <input type="text" name="nama_guru" list="data_guru" value="<?=$obj_absen->nama_guru?>" class="form-control">
 					<datalist id="data_guru">
 					<?php foreach($array_pelajaran as $pelajaran): ?>
 						<option value="<?=$pelajaran->nama_guru?>">
@@ -92,10 +96,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="col-sm-10">
                     <?php foreach($array_kelas as $kelas): ?>
 					<div class="form-check">
-                      <input class="form-check-input" type="radio" name="id_kelas" id="gridRadios1" value="<?=$kelas->id_kelas?>" checked>
-                      <label class="form-check-label" for="gridRadios1">
-                        <?=$kelas->nama_kelas?>
-                      </label>
+                      <input <?=$kelas->id_kelas == $obj_absen->id_kelas ? 'checked' : '';?> class="form-check-input" type="radio" name="id_kelas" id="gridRadios1" value="<?=$kelas->id_kelas?>">
+                      <label class="form-check-label" for="gridRadios1"><?=$kelas->nama_kelas?></label>
                     </div>
 					<?php endforeach; ?>
                   </div>
@@ -103,26 +105,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row mb-3">
                   <label for="inputTime" class="col-sm-2 col-form-label">Tanggal</label>
                   <div class="col-sm-10">
-                    <input name="tanggal" type="date" class="form-control">
+                    <input name="tanggal" value="<?=$obj_absen->tanggal?>" type="date" class="form-control">
                   </div>
                 </div>
 				<div class="row mb-3">
                   <label for="inputTime" class="col-sm-2 col-form-label">Jam Mulai</label>
                   <div class="col-sm-10">
-                    <input name="jam_mulai" type="time" class="form-control">
+                    <input name="jam_mulai" value="<?=$obj_absen->jam_mulai?>" type="time" class="form-control">
                   </div>
                 </div>				
                 <div class="row mb-3">
                   <label for="inputTime" class="col-sm-2 col-form-label">Jam Selesai</label>
                   <div class="col-sm-10">
-                    <input name="jam_selesai" type="time" class="form-control">
+                    <input name="jam_selesai" value="<?=$obj_absen->jam_selesai?>" type="time" class="form-control">
                   </div>
                 </div>
 				
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label"></label>
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Buat</button>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
                   </div>
                 </div>
 
