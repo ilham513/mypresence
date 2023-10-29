@@ -80,6 +80,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_edit_pelajaran', $data);
 	}	
 
+	public function edit_siswa($id)
+	{
+		//load model crud
+		$data['array_siswa'] = $this->crud_model->mengambil_data_id('siswa','id_siswa',$id);
+		$data['obj_siswa'] = $data['array_siswa'][0];
+		
+		// var_dump($data);die();
+
+		$this->load->view('admin_edit_siswa', $data);
+	}	
+
 	public function edit_absen($id)
 	{
 		//load model crud
@@ -172,6 +183,25 @@ class Admin extends CI_Controller {
 		
 		//redirect
 		redirect('/admin/view_kelas', 'refresh');
+	}	
+	
+	public function edit_siswa_go()
+	{
+		// var_dump($_POST);
+
+		//variabel data edit
+		$data = array(
+			'nisn' => $this->input->post('nisn'),
+			'nama_siswa' => $this->input->post('nama_siswa'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+			'agama' => $this->input->post('agama')		
+		);
+
+		//load model mengubah data
+		$this->crud_model->mengubah_data_id('siswa', $data,'id_siswa',$this->input->post('id_siswa'));
+		
+		//redirect
+		redirect('/admin/view_siswa', 'refresh');
 	}	
 	
 	public function edit_absen_go()

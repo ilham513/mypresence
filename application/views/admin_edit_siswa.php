@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View Siswa</title>
+  <title>Edit Siswa</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -46,55 +46,75 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>List Siswa</h1>
+      <h1>Edit Siswa</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="<?=site_url('admin')?>">Home</a></li>
-          <li class="breadcrumb-item active">List Siswa</li>
+          <li class="breadcrumb-item active">Edit Siswa</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
+	
+		<div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mengubah Data Siswa</h5>
 
-
-            <!-- Recent Sales -->
-              <div class="card recent-sales overflow-auto">
-
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-					<h5 class="card-title">Data Siswa</h5>
-					<button class="btn btn-sm text-primary"><a href="<?=site_url('admin/add_siswa')?>">Tambah Siswa</a></button>
-				  </div>
-
-                  <table class="table table-borderless datatable">
-                    <thead>
-                      <tr>
-                        <th scope="col">NIS</th>
-                        <th scope="col">NISN</th>
-                        <th scope="col">Nama Siswa</th>
-                        <th scope="col">Jenis Kelamin</th>
-                        <th scope="col">Agama</th>
-                        <th scope="col">Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-					  <?php foreach($array_siswa as $siswa): ?>
-                      <tr>
-                        <th scope="row"><?=$siswa->id_siswa?></th>
-                        <td><?=$siswa->nisn?></td>
-                        <td><?=$siswa->nama_siswa?></td>
-                        <td><?=$siswa->jenis_kelamin == 'l' ? 'Laki-Laki' : 'Perempuan' ?></td>
-                        <td><?=$siswa->agama?></td>
-                        <td><a href="<?=site_url('admin/edit_siswa/'.$siswa->id_siswa)?>"><i class="bi bi-pencil-square"></i></a> | <a href="<?=site_url('admin/hapus_siswa/'.$siswa->id_siswa)?>"><i class="bi bi-trash3"></i></a> </td>
-                      </tr>
-					  <?php endforeach; ?>
-                    </tbody>
-                  </table>
-
+              <!-- General Form Elements -->
+              <form action="<?=site_url('admin/edit_siswa_go')?>" method="post">
+                <div class="row mb-3">
+                  <div class="col-sm-10">
+                    <input name="id_siswa" value="<?=$obj_siswa->id_siswa?>" type="hidden" class="form-control">
+                  </div>
                 </div>
 				
-              </div><!-- End Recent Sales -->
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">NISN</label>
+                  <div class="col-sm-10">
+                    <input name="nisn" value="<?=$obj_siswa->nisn?>" type="number" class="form-control">
+                  </div>
+                </div>
+				
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Nama Siswa</label>
+                  <div class="col-sm-10">
+                    <input name="nama_siswa" value="<?=$obj_siswa->nama_siswa?>" type="text" class="form-control">
+                  </div>
+                </div>
+
+                <fieldset class="row mb-3">
+                  <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+                  <div class="col-sm-10">
+					<div class="form-check">
+                      <input class="form-check-input" <?=$obj_siswa->jenis_kelamin == 'l' ? 'checked' : ''?> type="radio" name="jenis_kelamin"  value="l">
+                      <label class="form-check-label" for="gridRadios1">Laki-Laki</label>
+                    </div>
+					<div class="form-check">
+                      <input class="form-check-input" <?=$obj_siswa->jenis_kelamin == 'p' ? 'checked' : ''?> type="radio" name="jenis_kelamin"  value="p">
+                      <label class="form-check-label" for="gridRadios1">Perempuan</label>
+                    </div>
+                  </div>
+                </fieldset>				
+				
+                <div class="row mb-3">
+                  <label for="inputText" class="col-sm-2 col-form-label">Agama</label>
+                  <div class="col-sm-10">
+                    <input name="agama" type="text" value="<?=$obj_siswa->agama?>" class="form-control">
+                  </div>
+                </div>
+				
+                <div class="row mb-3">
+                  <label class="col-sm-2 col-form-label"></label>
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                  </div>
+                </div>
+
+              </form><!-- End General Form Elements -->
+
+            </div>
+          </div>
 	
 	</section>
 
