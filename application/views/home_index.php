@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<form method="post" enctype="multipart/form-data" action="<?=site_url('home/home_absen_go')?>">
 				  <div class="mb-3">
 					<label class="form-label">Nama</label>
-					<input name="nama_siswa" list="list_murid" type="text" class="form-control" placeholder="Masukan nama anda..." >
+					<input name="nama_siswa" required list="list_murid" type="text" class="form-control" placeholder="Masukan nama anda..." >
 					<datalist id="list_murid">
 					<?php foreach($array_siswa as $siswa): ?>
 						<option value="<?=$siswa->nama_siswa?>">
@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  
 				  <div class="mb-3">
 					<label class="form-label">Kelas</label>
+					<input class="d-none" type="radio" name="id_kelas" required value="-">
                     <?php foreach($array_kelas as $kelas): ?>
 					<div class="form-check">
                       <input class="form-check-input" type="radio" name="id_kelas" id="gridRadios1" value="<?=$kelas->id_kelas?>">
@@ -60,19 +61,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  
 				  <div class="mb-3">
 					<label class="form-label">Kode Absen</label>
-					<input name="kode_absen" type="text" class="form-control w-50" placeholder="Kode absen dari guru anda...">
+					<input required name="kode_absen" type="text" class="form-control w-50" placeholder="Kode absen dari guru anda...">
 				  </div>
 
 				  <div class="mb-3">
 					<label class="form-label">Lokasi <span class="text-primary" onclick="getLocation()">(Ambil Lokasi)</span></label>
-					<input name="lokasi" id="lokasi" type="text" class="form-control" placeholder="Klik 'Ambil Lokasi' dahulu" >
+					<input required readonly name="lokasi" id="lokasi" type="text" class="form-control" placeholder="Klik 'Ambil Lokasi' dahulu" >
 				  </div>
 				  
 				  <?php echo form_open_multipart('home/home_absen_go');?>	
 				  
 				  <div class="mb-3">
 					<label class="form-label">Foto Selfie</label>
-					<input type="file" enctype="multipart/form-data" name="berkas">
+					<input type="file" enctype="multipart/form-data" name="gambar">
 				  </div>
 				  
 				  <button type="submit" class="btn btn-primary">Kirim</button>
