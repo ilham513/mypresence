@@ -67,8 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  <i class="bi bi-person"></i>
 							</div>
 							<div class="ps-3">
-							  <h6>800</h6>
-							  <span class="text-muted small pt-2 ps-1">400 Laki-laki & 400 Perempuan</span>
+							  <h6><?= $jumlah_siswa ;?></h6>
+							  <span class="text-muted small pt-2 ps-1"><?=$jumlah_siswa_laki;?> Laki-laki & <?=$jumlah_siswa_perempuan;?> Perempuan</span>
 							</div>
 						  </div>
 						</div>
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  <i class="bi-journal-text"></i>
 							</div>
 							<div class="ps-3">
-							  <h6>145</h6>
+							  <h6><?= $jumlah_pelajaran ;?></h6>
 							  <span class="text-muted small pt-2 ps-1">IPA dan IPS</span>
 							</div>
 						  </div>

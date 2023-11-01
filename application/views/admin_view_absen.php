@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><span class="badge bg-success"><?=$absen->kode_absen?></span></td>
                         <td><a href="<?=site_url('admin/hapus_absen/'.$absen->id_absen)?>"><i class="bi bi-trash3"></i></a> | 
 						<a href="<?=site_url('admin/edit_absen/'.$absen->id_absen)?>"><i class="bi bi-pencil-square"></i></a> | 
-						<i class="bi bi-eye-fill"></i></td>
+						<i data-bs-toggle="modal" data-bs-target="#exampleModal<?=$absen->id_absen?>" class="bi text-primary bi-eye-fill"></i></td>
                       </tr>
 <?php endforeach; ?>					  
                     </tbody>
@@ -103,13 +103,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div><!-- End Recent Sales -->
 	
 	</section>
-
   </main><!-- End #main -->
 
   <?php $this->load->view('component/footer') ?>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+<?php foreach($array_absen as $absen): ?>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal<?=$absen->id_absen?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detail Absen <?=$absen->kode_absen?></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+		<table class="table align-middle mb-0 bg-white">
+		<thead>
+			<tr>
+			  <th scope="col">Nama</th>
+			  <th scope="col">Jam Absen</th>
+			  <th scope="col">Lokasi</th>
+			  <th scope="col">Keterangan</th>
+			</tr>
+		</thead>
+		  <tbody>
+			<tr>
+			  <td>Nama</td>
+			  <td>Nama</td>
+			  <td>Nama</td>
+			  <td>Nama</td>
+			</tr>
+		  </tbody>
+		</table>	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach; ?>
+
+  
   <!-- Vendor JS Files -->
   <script src="<?=base_url()?>css/apexcharts/apexcharts.min.js"></script>
   <script src="<?=base_url()?>css/chart.js/chart.umd.js"></script>
@@ -122,6 +159,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <!-- Template Main JS File -->
   <script src="<?=base_url()?>js/main.js"></script>
+  
+  <script>
+	var myModal = document.getElementById('myModal')
+	var myInput = document.getElementById('myInput')
+
+	myModal.addEventListener('shown.bs.modal', function () {
+	  myInput.focus()
+	})  
+  </script>
 
 </body>
 

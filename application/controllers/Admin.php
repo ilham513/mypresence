@@ -12,7 +12,13 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin_index');
+		$data['jumlah_siswa'] = $this->crud_model->menghitung_jumlah_row('siswa');
+		$data['jumlah_pelajaran'] = $this->crud_model->menghitung_jumlah_row('pelajaran');
+		$data['jumlah_siswa_laki'] = $this->crud_model->menghitung_jumlah_row_where('siswa','jenis_kelamin','l');
+		$data['jumlah_siswa_perempuan'] = $this->crud_model->menghitung_jumlah_row_where('siswa','jenis_kelamin','p');
+		// var_dump($data);die();
+		
+		$this->load->view('admin_index', $data);
 	}	
 
 	public function view_absen()

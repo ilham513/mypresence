@@ -104,6 +104,18 @@ class Crud_model extends CI_Model{
 		// var_dump($query->result_id->num_rows);die();		
 	}
 
+	public function menghitung_jumlah_row_where($nama_tabel,$nama_colum,$katakunci)
+	{
+
+		$this->db->select('*');
+		$this->db->from($nama_tabel);
+		$this->db->where($nama_colum, $katakunci);
+		$query = $this->db->get();
+
+		return $query->result_id->num_rows;
+		// var_dump($query->result_id->num_rows);die();		
+	}
+
 	public function ambil_grafik($nama_tabel)
 	{
 		$query = $this->db->query("
