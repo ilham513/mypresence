@@ -8,16 +8,17 @@ class Api extends RestController{
 		$this->load->model('api_model');
 	}
 	
-    //Menampilkan data kontak
+    //Menampilkan data
     function index_get() {
         $id = $this->get('id');
         if ($id == '') {
-            $kontak = $this->db->get('siswa')->result();
+            $hasil = $this->db->get('log_absen')->result();
         } else {
-            $this->db->where('id', $id);
-            $kontak = $this->db->get('siswa')->result();
+            $this->db->where('id_absen', $id);
+			$this->db->join('siswa', 'log_absen.id_siswa = siswa.id_siswa');
+            $hasil = $this->db->get('log_absen')->result();
         }
-        $this->response($kontak, 200);
+        $this->response($hasil, 200);
     }	
 }
 ?>

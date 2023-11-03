@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View Absen</title>
+  <title>View Absen ID</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -72,30 +72,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">Nama Siswa</th>
                         <th scope="col">Kelas</th>
-                        <th scope="col">Pelajaran</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Jam Mulai</th>
-                        <th scope="col">Jam Selesai</th>
-                        <th scope="col">Kode Absen</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Waktu Absen</th>
+                        <th scope="col">Lokasi</th>
+                        <th scope="col">Gambar</th>
                       </tr>
                     </thead>
                     <tbody>
-<?php foreach($array_absen as $absen): ?>					
+<?php foreach($array_log_absen as $log_absen): ?>					
                       <tr>
-                        <th scope="row"><?=$absen->id_absen?></th>
-                        <td><?=$absen->nama_kelas?></td>
-                        <td><?=$absen->nama_pelajaran?></td>
-                        <td><?=$absen->tanggal?></td>
-                        <td><?=$absen->jam_mulai?></td>
-                        <td><?=$absen->jam_selesai?></td>
-                        <td><span class="badge bg-success"><?=$absen->kode_absen?></span></td>
-                        <td><a href="<?=site_url('admin/hapus_absen/'.$absen->id_absen)?>"><i class="bi bi-trash3"></i></a> | 
-						<a href="<?=site_url('admin/edit_absen/'.$absen->id_absen)?>"><i class="bi bi-pencil-square"></i></a> | 
-						<!--onclick="ambilListAbsen()" data-bs-toggle="modal" data-bs-target="#exampleModal" -->
-						<a href="<?=site_url('admin/view_absen_id/'.$absen->id_absen)?>"><i class="bi text-primary bi-eye-fill"></i></a></td>
+                        <td><?=$log_absen->nama_siswa?></td>
+                        <td><?=$log_absen->nama_kelas?></td>
+                        <td><?=$log_absen->timestamp_absen?></td>
+                        <td><?=$log_absen->lokasi?></td>
+                        <td><?=$log_absen->lokasi_gambar?></td>
                       </tr>
 <?php endforeach; ?>					  
                     </tbody>
@@ -111,43 +102,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php $this->load->view('component/footer') ?>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<?php foreach($array_absen as $absen): ?>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal<?=$absen->id_absen?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Detail Absen <?=$absen->kode_absen?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-		<table class="table align-middle mb-0 bg-white">
-		<thead>
-			<tr>
-			  <th scope="col">Nama</th>
-			  <th scope="col">Jam Absen</th>
-			  <th scope="col">Lokasi</th>
-			  <th scope="col">Keterangan</th>
-			</tr>
-		</thead>
-		  <tbody id="modal_body">
-			<tr>
-			  <td>Nama</td>
-			  <td>Nama</td>
-			  <td>Nama</td>
-			  <td>Nama</td>
-			</tr>
-		  </tbody>
-		</table>	
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<?php endforeach; ?>
 
   
   <!-- Vendor JS Files -->

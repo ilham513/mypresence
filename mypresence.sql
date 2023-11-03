@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 04:41 AM
+-- Generation Time: Nov 03, 2023 at 03:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -43,7 +43,8 @@ CREATE TABLE `absen` (
 --
 
 INSERT INTO `absen` (`id_absen`, `id_kelas`, `id_pelajaran`, `nama_guru`, `tanggal`, `jam_mulai`, `jam_selesai`, `kode_absen`) VALUES
-(2, 3, 1, 'Amandah, S.Si', '1999-09-09', '08:00:00', '09:30:00', '19700');
+(2, 3, 1, 'Amandah, S.Si', '1999-09-09', '08:00:00', '09:30:00', '19700'),
+(3, 2, 2, 'Amandah, S.Si', '1998-09-09', '06:00:00', '08:00:00', '18821');
 
 -- --------------------------------------------------------
 
@@ -95,9 +96,21 @@ CREATE TABLE `log_absen` (
   `id_siswa` int(255) NOT NULL,
   `id_kelas` int(255) NOT NULL,
   `id_absen` int(255) NOT NULL,
+  `timestamp_absen` timestamp NOT NULL DEFAULT current_timestamp(),
   `lokasi` varchar(255) NOT NULL,
   `lokasi_gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `log_absen`
+--
+
+INSERT INTO `log_absen` (`id_log_absen`, `id_siswa`, `id_kelas`, `id_absen`, `timestamp_absen`, `lokasi`, `lokasi_gambar`) VALUES
+(1, 212210001, 1, 2, '2023-10-30 04:04:18', '-6.1964288,106.9252608', '653f269d35dc1.jpg'),
+(2, 212210010, 1, 2, '2023-10-30 04:04:18', '-6.1964288,106.9252608', '653f2af46d41e.jpg'),
+(3, 212210015, 1, 2, '2023-10-30 04:04:52', '-6.1964288,106.9252608', '653f2b6478da5.jpg'),
+(4, 212210002, 1, 3, '2023-11-01 13:17:38', '-6.238946514483991,107.04895901997237', '65424ff231230.png'),
+(5, 212210006, 2, 3, '2023-11-03 01:37:54', '-6.276668125472347,106.99397676843022', '65444ef2561f8.jpeg');
 
 -- --------------------------------------------------------
 
@@ -288,7 +301,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `absen`
 --
 ALTER TABLE `absen`
-  MODIFY `id_absen` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_absen` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kelas`
@@ -300,7 +313,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `log_absen`
 --
 ALTER TABLE `log_absen`
-  MODIFY `id_log_absen` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_log_absen` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`

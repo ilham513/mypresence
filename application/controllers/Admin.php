@@ -24,8 +24,20 @@ class Admin extends CI_Controller {
 	public function view_absen()
 	{
 		$data['array_absen'] = $this->crud_model->mengambil_data_join('absen',['kelas','pelajaran']);
+		// var_dump($data);die();
 		
 		$this->load->view('admin_view_absen',$data);
+	}	
+	
+	public function view_absen_id($id)
+	{
+		//load model crud
+		$data['array_log_absen'] = $this->crud_model->mengambil_data_join_id('log_absen',['siswa','kelas'],'id_absen',$id);
+		// $data['obj_log_absen'] = $data['array_log_absen'][0];
+		
+		// var_dump($data);die();
+		
+		$this->load->view('admin_view_absen_id',$data);
 	}	
 	
 	public function view_pelajaran()
