@@ -85,8 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?=$log_absen->nama_siswa?></td>
                         <td><?=$log_absen->nama_kelas?></td>
                         <td><?=$log_absen->timestamp_absen?></td>
-                        <td><?=$log_absen->lokasi?></td>
-                        <td><?=$log_absen->lokasi_gambar?></td>
+                        <td><a href="https://maps.google.com/maps?q=<?=$log_absen->lokasi?>&hl=id&z=14&amp" target="_blank">Lihat Lokasi</a></td>
+                        <td><a target="_blank" href="<?=base_url('uploads/'.$log_absen->lokasi_gambar)?>">Lihat Gambar</a></td>
                       </tr>
 <?php endforeach; ?>					  
                     </tbody>
