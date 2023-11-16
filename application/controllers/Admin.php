@@ -61,6 +61,49 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_view_kelas',$data);
 	}	
 
+	public function view_pencarian()
+	{
+		$data['array_kelas'] = $this->crud_model->mengambil_data('kelas');
+		
+		$this->load->view('admin_view_pencarian',$data);
+	}	
+
+	public function view_pencarian_go()
+	{
+		$array_siswa = $this->crud_model->mengambil_data('siswa');
+
+		// echo substr($array_siswa[0]->nama_siswa,0,2);
+
+		$cari = strtoupper($this->input->post('nama_siswa'));
+		// echo strlen($cari);
+		$ketemu = false;
+		$list_index = array();
+
+		for ($i = 0; $i < count($array_siswa); $i++){
+			// echo strtoupper(substr($array_siswa[$i]->nama_siswa,0,2));
+			if(strtoupper(substr($array_siswa[$i]->nama_siswa,0,strlen($cari))) == $cari){
+				$ketemu = true;
+				$list_index[] = $i;
+			}
+		}
+
+		if ($ketemu){
+			// echo "Data ditemukan sebanyak ".count($list_index);
+		} else {
+			echo '<script> alert("Data tidak ditemukan, harap tulis ulang!!"); </script>';
+
+			//redirect
+			redirect('/admin/view_pencarian', 'refresh');
+		}
+		
+		foreach($list_index as $index){
+			$data['array_siswa'][] = $array_siswa[$index];
+		}
+		
+		// var_dump($data);
+		$this->load->view('admin_view_pencarian_go',$data);
+	}	
+
 	public function add_absen()
 	{
 		$data['array_pelajaran'] = $this->crud_model->mengambil_data('pelajaran');

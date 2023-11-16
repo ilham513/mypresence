@@ -44,6 +44,13 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?=site_url('admin/view_pencarian')?>">
+          <i class="bi bi-search"></i>
+          <span>Pencarian</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
 	  <!--
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
