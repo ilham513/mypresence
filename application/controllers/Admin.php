@@ -33,6 +33,7 @@ class Admin extends CI_Controller {
 	{
 		//load model crud
 		$data['array_log_absen'] = $this->crud_model->mengambil_data_join_id('log_absen',['siswa','kelas'],'id_absen',$id);
+		$data['array_siswa'] = $this->crud_model->mengambil_data('siswa');
 		// $data['obj_log_absen'] = $data['array_log_absen'][0];
 		
 		// var_dump($data);die();

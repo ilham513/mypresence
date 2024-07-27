@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tr>
                     </thead>
                     <tbody>
-<?php foreach($array_log_absen as $log_absen): ?>					
+                    <?php foreach($array_log_absen as $log_absen): ?>					
                       <tr>
                         <td><?=$log_absen->nama_siswa?></td>
                         <td><?=$log_absen->nama_kelas?></td>
@@ -88,7 +88,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><a href="https://maps.google.com/maps?q=<?=$log_absen->lokasi?>&hl=id&z=14&amp" target="_blank">Lihat Lokasi</a></td>
                         <td><a target="_blank" href="<?=base_url('uploads/'.$log_absen->lokasi_gambar)?>">Lihat Gambar</a></td>
                       </tr>
-<?php endforeach; ?>					  
+                    <?php endforeach; ?>					  
+                    <?php foreach($array_siswa as $siswa): ?>					
+                      <tr>
+                        <td><?=$siswa->nama_siswa?></td>  
+                        <td><?=$log_absen->nama_kelas?></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                    <?php endforeach; ?>					  
                     </tbody>
                   </table>
 
